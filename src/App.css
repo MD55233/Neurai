@@ -250,9 +250,13 @@ body {
 }
 
 .signup-section {
-  max-width: 520px;
+  max-width: 720px;
   margin: 0 auto;
   padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
 }
 
 .signup-form {
@@ -331,39 +335,19 @@ body {
 
 .customer-block {
   margin-top: 80px;
-  padding: 64px 32px;
+  padding: 48px 32px;
   text-align: center;
   background: #f8f9fa;
   position: relative;
   overflow: hidden;
-   height: 400px;
-  background: linear-gradient(to bottom right, transparent 49%, #f5f5f5 50%);
-
+  height: auto;
   z-index: 1;
 }
 
-.customer-block::before {
-  content: '';
-  position: absolute;
-  top: -50px;
-  left: 0;
-  right: 0;
-  height: 100px;
-
-  clip-path: polygon(0 100%, 50% 0, 100% 100%);
-}
-
+/* Remove decorative diagonal shapes that caused visual misalignment. */
+.customer-block::before,
 .customer-block::after {
-  content: '';
- 
-  position: absolute;
-  top:100px;
-  bottom: -50px;
-  left: 0;
-  right: 0;
-  height: 100px;
- 
-  clip-path: polygon(0 0, 50% 100%, 100% 0);
+  display: none;
 }
 
 .customer-quote {
@@ -373,6 +357,16 @@ body {
   font-weight: 500;
   max-width: 900px;
   margin: 0 auto 48px;
+}
+
+/* Center the customer logos list so it lines up with other content */
+.customers-logos {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 32px;
 }
 
 .customer-details {
@@ -623,6 +617,48 @@ body {
   .stats-cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 18px;
+  }
+}
+
+/* Desktop layout: place signup form and social buttons side-by-side */
+@media (min-width: 900px) {
+  /* Keep signup content stacked vertically on larger screens to match desired layout */
+  .signup-section {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    max-width: 820px;
+  }
+
+  .signup-form {
+    max-width: 520px;
+    width: 100%;
+  }
+
+  .alternative-signup {
+    margin-top: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* center the "or" and buttons */
+    justify-content: center;
+    width: 100%;
+  }
+
+  /* Social buttons inline and centered under the form on desktop */
+  .social-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .social-button {
+    width: auto;
+    padding: 0.5rem 1rem;
+    min-width: 180px;
+    justify-content: center;
   }
 }
 
@@ -1123,6 +1159,81 @@ body {
   .tab-buttons { gap: 8px; }
   .nav-tab { font-size: 13px; padding: 8px 10px; }
   .slide-screenshot { border-radius: 10px; }
+}
+
+/* Stacked cards variables and container */
+:root {
+  --peek-space: 50px;
+  --top-sticky: var(--header-height);
+  --top-anchor: var(--header-height);
+}
+
+/* Main stacked container */
+.stacked-container {
+  width: 100%;
+  background: white;
+  padding: 100px 24px;
+  position: relative;
+}
+
+/* Panel container */
+.mui-scroll-panels {
+  margin-top: 18px;
+  position: relative;
+  z-index: 1;
+  padding-bottom: calc(4 * var(--peek-space));
+}
+
+/* Individual panels */
+.mui-scroll-panel {
+  background: white;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 12px;
+  padding: 18px 24px 36px;
+  position: sticky;
+  /* Each panel gets its own sticky position */
+  top: calc(var(--top-sticky) + var(--peek-space) * var(--panel-index, 0));
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-bottom: calc(-100% + var(--peek-space));
+}
+
+/* Panel grid layout */
+.mui-panel-grid {
+  display: grid;
+  grid-template-columns: 1fr 520px;
+  gap: 48px;
+  align-items: flex-start;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  position: relative;
+}
+
+.mui-panel-text { text-align: left; }
+.mui-panel-title { font-size: 40px; line-height: 1.05; margin: 0 0 12px 0; }
+.mui-panel-sub { color: #444; font-size: 1.05rem; margin-bottom: 18px; }
+.mui-panel-features { margin-top: 22px; list-style: none; padding: 0; color: #666; display: grid; gap: 10px; }
+.mui-panel-features li::before { content: '•'; color: var(--primary-purple); display: inline-block; width: 18px; margin-right: 8px; }
+
+.mui-panel-media { display:flex; align-items:center; justify-content:center; }
+.mui-screenshot {
+  width: 100%;
+  height: 320px;
+  background: linear-gradient(180deg,#192225 0%, #2b3a3a 100%);
+  border-radius: 8px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  color: #fff;
+  display:flex; align-items:center; justify-content:center;
+}
+
+@media (max-width: 1100px) {
+  .mui-panel-grid { grid-template-columns: 1fr 420px; gap: 36px; }
+  .mui-screenshot { height: 280px; }
+}
+
+@media (max-width: 820px) {
+  .mui-panel-grid { grid-template-columns: 1fr; padding-top: 8px; }
+  .mui-panel-media { order: -1; margin-bottom: 12px; }
+  .mui-screenshot { width: 100%; height: 220px; }
 }
 
 /* Drawer stack styles */
