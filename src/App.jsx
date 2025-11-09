@@ -3,6 +3,7 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CustomerSection } from './components/CustomerSection';
 import { FeaturesSection } from './components/FeaturesSection';
+import StackedCardSection from './components/StackedCardSection';
 import Drawer from './Drawer';
 import './App.css';
 
