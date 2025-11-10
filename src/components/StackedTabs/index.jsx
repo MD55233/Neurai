@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
-import './stackedTabs.css';
+import '../StackedTabs/stackedTabs.css';
 
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 

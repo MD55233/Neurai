@@ -5,6 +5,7 @@ import { CustomerSection } from './components/CustomerSection';
 import { FeaturesSection } from './components/FeaturesSection';
 import StackedTabs from './components/StackedTabs';
 import PeopleCards from './components/PeopleCards';
+import PromoSection from './components/PromoSection';
 import Footer from './components/Footer';
 
 import Drawer from './Drawer';
@@ -73,8 +74,8 @@ function App() {
           <StackedTabs />
           <PeopleCards />
         </div>
+  <PromoSection />
 
-       
        
       </main>
 

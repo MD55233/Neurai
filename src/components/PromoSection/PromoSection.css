@@ -1,0 +1,148 @@
+/* PromoSection styles: card with slanted image and precise divider lines to match screenshot */
+.promo-section {
+  padding: 36px 8px;
+  background: #f3f4f6; /* subtle page bg */
+}
+
+.promo-card {
+ margin-top: 15px;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(2,6,23,0.08);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+}
+
+.promo-content {
+  padding: 54px 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.promo-title {
+  font-size: 48px;
+  line-height: 1.02;
+  margin: 0 0 18px 0;
+  font-weight: 600;
+  color: #0b1220;
+}
+
+.promo-desc {
+  color: #4b5563;
+  margin-bottom: 24px;
+  max-width: 560px;
+}
+
+.promo-cta {
+  display: flex;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.promo-btn {
+  padding: 11px 20px;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.promo-btn-primary {
+  background: #0b1220;
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(11,18,32,0.12);
+}
+
+.promo-btn-outline {
+  background: transparent;
+  color: #0b1220;
+  border: 1px solid rgba(11,18,32,0.08);
+}
+
+.promo-image {
+  position: relative;
+  width: 100%;
+  height: 480px;
+  overflow: hidden;
+}
+
+.promo-image img {
+  position: absolute;
+  top: 0;
+  left: 8%;
+  width: 120%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* sharper slanted/pentagon cut to match screenshot */
+.promo-image {
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 28% 100%, 44% 50%);
+}
+
+.promo-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  mix-blend-mode: normal;
+}
+
+.promo-lines polyline,
+.promo-lines line {
+  stroke: #ffffff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  opacity: 0.95;
+}
+
+/* small white highlight near the slanted edge */
+.promo-image::after {
+  content: '';
+  position: absolute;
+  left: 24%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(255,255,255,0.6);
+  transform: translateX(-1px);
+  pointer-events: none;
+}
+
+/* Responsive stack */
+@media (max-width: 768px) {
+  .promo-card {
+    grid-template-columns: 1fr;
+  }
+
+  .promo-content {
+    padding: 24px;
+  }
+
+  .promo-title {
+    font-size: 28px;
+  }
+
+  .promo-image {
+    height: 260px;
+    clip-path: none;
+  }
+
+  .promo-image img {
+    left: 0;
+    width: 100%;
+  }
+
+  .promo-image::after,
+  .promo-lines {
+    display: none;
+  }
+}
+
