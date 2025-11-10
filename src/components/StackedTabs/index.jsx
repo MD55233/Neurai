@@ -97,7 +97,7 @@ export default function StackedTabs() {
             yPercent: 0,
             opacity: 1,
             zIndex: 2,
-            duration: 0.2,
+            duration: 0,
             ease: 'none',
           });
         } else if (i === currentIndex.current) {
@@ -105,7 +105,7 @@ export default function StackedTabs() {
             yPercent: direction > 0 ? -100 : 100,
             opacity: 0,
             zIndex: 1,
-            duration: 0.2,
+            duration: 0,
             ease: 'none',
           });
         } else {
