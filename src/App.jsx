@@ -3,6 +3,9 @@ import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { CustomerSection } from './components/CustomerSection';
 import { FeaturesSection } from './components/FeaturesSection';
+import StackedTabs from './components/StackedTabs';
+import PeopleCards from './components/PeopleCards';
+import Footer from './components/Footer';
 
 import Drawer from './Drawer';
 import './App.css';
@@ -63,10 +66,19 @@ function App() {
         <div className="content-container">
           <Hero />
           <CustomerSection statsRef={statsRef} />
-
           <FeaturesSection featuresRef={featuresRef} />
         </div>
+        
+        <div className="second-container">
+          <StackedTabs />
+          <PeopleCards />
+        </div>
+
+       
+       
       </main>
+
+      <Footer />
     </div>
   );
 }
