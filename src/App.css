@@ -234,7 +234,7 @@ body {
 .hero-container {
   background: white;
   border-radius: 16px;
-  padding: 96px 32px;
+  padding: 66px 32px;
   max-width: 1250px;
   width: 100%;
   margin: 0 auto;
@@ -286,8 +286,8 @@ body {
 
 .signup-form {
   display: flex;
-  gap: 16px;
-  margin-bottom: 32px;
+ 
+  
 }
 
 .email-input {
