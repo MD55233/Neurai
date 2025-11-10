@@ -16,6 +16,8 @@
 }
 
 .no-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
   display: none;
 }
 
@@ -156,6 +158,14 @@
   height: 280px;
   background: #3a3a3a;
   border-radius: 12px;
+}
+
+/* actual image inside panel */
+.panel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 @media (max-width: 900px) {

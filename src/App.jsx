@@ -1,11 +1,13 @@
 import { useState, useEffect, useRef } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
+import VideoBanner from './components/VideoBanner';
 import { CustomerSection } from './components/CustomerSection';
 import { FeaturesSection } from './components/FeaturesSection';
 import StackedTabs from './components/StackedTabs';
 import PeopleCards from './components/PeopleCards';
 import PromoSection from './components/PromoSection';
+import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 
 import Drawer from './Drawer';
@@ -66,6 +68,7 @@ function App() {
       <main className="main-content">
         <div className="content-container">
           <Hero />
+          <VideoBanner />
           <CustomerSection statsRef={statsRef} />
           <FeaturesSection featuresRef={featuresRef} />
         </div>
@@ -74,9 +77,12 @@ function App() {
           <StackedTabs />
           <PeopleCards />
         </div>
-  <PromoSection />
+        <PromoSection />
+          <div className="second-container">
+            <FaqSection />
+          </div>
 
-       
+      
       </main>
 
       <Footer />

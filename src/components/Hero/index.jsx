@@ -18,9 +18,9 @@ export const Hero = () => {
           />
           <button className="signup-button">Sign up for free</button>
         </div>
-        
+
         <div className="alternative-signup">
-          <span>or</span>
+          <div className="or-line"><span>or</span></div>
           <div className="social-buttons">
             <button className="social-button google-signup">
               <img src="/google.svg" alt="Google" />
@@ -32,6 +32,8 @@ export const Hero = () => {
             </button>
           </div>
         </div>
+
+        <p className="hero-terms">By signing up, I agree to Apollo's <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>.</p>
       </div>
     </div>
   );

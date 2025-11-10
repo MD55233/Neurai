@@ -4,6 +4,11 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin';
 import '../StackedTabs/stackedTabs.css';
 
+import img0 from '../../assets/stackedtabs/image.webp';
+import img1 from '../../assets/stackedtabs/image (1).webp';
+import img2 from '../../assets/stackedtabs/image (2).webp';
+import img3 from '../../assets/stackedtabs/image (3).webp';
+
 gsap.registerPlugin(ScrollTrigger, ScrollToPlugin);
 
 const tabs = [
@@ -162,8 +167,8 @@ export default function StackedTabs() {
   return (
     <section ref={sectionRef} className="relative overflow-hidden w-full">
       {/* Sticky Tabs */}
-      <div className="sticky top-[64px] md:top-[64px] z-[50] bg-white/95 backdrop-blur-md overflow-x-auto overflow-y-hidden w-full">
-        <div className="flex flex-nowrap justify-start md:justify-center px-4 py-3 gap-2 xs:gap-3 sm:gap-4 max-w-[100vw] no-scrollbar">
+      <div className="sticky top-[64px] md:top-[64px] z-[50] bg-white/95 backdrop-blur-md overflow-x-auto overflow-y-hidden w-full no-scrollbar">
+        <div className="flex flex-nowrap justify-start md:justify-center px-4 py-3 gap-2 xs:gap-3 sm:gap-4 max-w-[100vw]">
           {tabs.map((t, i) => (
             <button
               key={t.id}
@@ -186,7 +191,7 @@ export default function StackedTabs() {
           <div
             key={c.id}
             ref={(el) => (panelsRef.current[i] = el)}
-            className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 items-start md:items-center justify-center gap-4 xs:gap-6 md:gap-10 px-4 xs:px-6 md:px-10 pt-20 pb-6 md:py-0 overflow-y-auto md:overflow-y-visible w-full"
+            className="absolute inset-0 grid grid-cols-1 md:grid-cols-2 items-start md:items-center justify-center gap-4 xs:gap-6 md:gap-10 px-4 xs:px-6 md:px-10 pt-20 pb-6 md:py-0 overflow-y-auto md:overflow-y-visible w-full no-scrollbar"
           >
             {/* Text Content */}
             <div className="w-full max-w-xl mx-auto md:mx-0">
@@ -208,7 +213,9 @@ export default function StackedTabs() {
 
             {/* Image / Illustration */}
             <div className="flex justify-center mt-4 md:mt-0">
-              <div className="w-full max-w-[350px] h-auto aspect-[7/5] bg-neutral-800 rounded-xl shadow-lg" />
+              <div className="w-full max-w-[600px] h-auto aspect-[7/5] overflow-hidden rounded-xl shadow-lg">
+                <img src={[img0, img1, img2, img3][i]} alt={`${c.id} visual`} className="panel-image" />
+              </div>
             </div>
           </div>
         ))}
