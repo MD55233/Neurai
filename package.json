@@ -12,6 +12,7 @@
   "dependencies": {
     "@sist/react-stacked-card": "^0.0.4",
     "gsap": "^3.13.0",
+    "motion": "^12.23.24",
     "particles.js": "^2.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
