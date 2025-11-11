@@ -5,6 +5,27 @@
   text-align: center;
 }
 
+/* Wrapper layering for particles background */
+.hero-wrapper {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-particles-layer {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: none; /* ensure UI remains interactive */
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+}
+
 .hero-container h1 {
   font-size: 3.5rem;
   font-weight: 700;
@@ -129,3 +150,14 @@
 }
 
 .hero-terms a { color: inherit; text-decoration: underline; }
+
+/* Mobile performance tuning: reduce min-height and spacing when particles active */
+@media (max-width: 640px) {
+  .hero-container {
+    padding-top: 2.5rem;
+    padding-bottom: 2rem;
+  }
+  .hero-container h1 {
+    font-size: 2.4rem;
+  }
+}

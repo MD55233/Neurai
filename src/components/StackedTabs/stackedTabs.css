@@ -187,4 +187,27 @@
   .panel-inner {
     padding: 0;
   }
+
+  /* Mobile: make panels stack normally (no absolute overlay) */
+  .panels {
+    height: auto;
+  }
+
+  .panel {
+    position: relative;
+    inset: auto;
+    opacity: 1 !important;
+    transform: none !important;
+    z-index: 1 !important;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  /* Force sticky positioning on mobile */
+  .stacked-tabs > div:first-child {
+    position: sticky !important;
+    top: 56px !important;
+    z-index: 999 !important;
+    background: white;
+  }
 }

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 455.2 455.2">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: url(#radial-gradient);
+      }
+    </style>
+    <radialGradient id="radial-gradient" cx="227.6" cy="227.6" fx="227.6" fy="227.6" r="227.6" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/>
+      <stop offset=".16" stop-color="#fafdfd"/>
+      <stop offset=".33" stop-color="#edf8f9"/>
+      <stop offset=".51" stop-color="#d7f0f3"/>
+      <stop offset=".69" stop-color="#b8e5ea"/>
+      <stop offset=".88" stop-color="#91d7df"/>
+      <stop offset="1" stop-color="#73ccd7"/>
+    </radialGradient>
+  </defs>
+  <circle class="cls-1" cx="227.6" cy="227.6" r="227.6"/>
+  <g>
+    <rect x="34.16" y="173.79" width="204.4" height="31.21" rx="11.6" ry="11.6" transform="translate(154.83 -43.25) rotate(40.29)"/>
+    <rect x="216.65" y="173.79" width="204.4" height="31.21" rx="11.6" ry="11.6" transform="translate(684.53 127.65) rotate(139.71)"/>
+    <rect x="178.41" y="223.7" width="92.51" height="138.48"/>
+    <rect x="177.67" y="93.33" width="92.51" height="138.48" transform="translate(448.94 323.63) rotate(179.61)"/>
+  </g>
+</svg>
