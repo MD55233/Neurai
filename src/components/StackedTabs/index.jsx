@@ -97,7 +97,7 @@ export default function StackedTabs() {
             yPercent: 0,
             opacity: 1,
             zIndex: 2,
-            duration: 0.2,
+            duration: 0,
             ease: 'none',
           });
         } else if (i === currentIndex.current) {
@@ -105,7 +105,7 @@ export default function StackedTabs() {
             yPercent: direction > 0 ? -100 : 100,
             opacity: 0,
             zIndex: 1,
-            duration: 0.2,
+            duration: 0,
             ease: 'none',
           });
         } else {
@@ -172,7 +172,7 @@ export default function StackedTabs() {
           {tabs.map((t, i) => (
             <button
               key={t.id}
-              className={`text-xs xs:text-sm sm:text-base px-4 xs:px-6 py-2 rounded-md font-medium shrink-0 border border-transparent transition-all duration-300 ${
+              className={` rounded-md font-medium border border-transparent transition-all duration-300 text-nowrap px-4 py-3 text-[10px] uppercase leading-[120%] transition-all md:px-5 md:py-3 md:text-[12px] ${
                 activeIndex === i
                   ? 'bg-[#cff4f7] text-black'
                   : 'bg-gray-100 text-gray-700 hover:bg-white hover:shadow-glow hover:-translate-y-[2px]'

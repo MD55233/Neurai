@@ -53,17 +53,24 @@ body {
 .header-left {
   display: flex;
   align-items: center;
-  gap: 40px;
+  
 }
 
 .logo {
   height: 34px;
-  width: auto;
+  
 }
 .logotext {
   height: 24px;
   width: auto;
 
+}
+.header-text{
+  margin-left: 1px;
+  padding-left: 4px;
+padding-right: 40px;
+  font-weight: 600;
+  font-size: 25px;
 }
 .menu-button {
   border: none;
@@ -109,6 +116,7 @@ body {
 
 .content-container {
   background: white;
+ 
   border-radius: 12px;
   width: 100%;
   max-width: var(--max-width);
@@ -128,6 +136,13 @@ body {
   overflow: hidden;
 
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+@media (max-width: 900px) {
+  .second-container {
+    overflow: visible;
+    border-radius: 0;
+  }
 }
 .nav-links {
   display: flex;
@@ -210,7 +225,7 @@ body {
   top: 0;
   left: 0;
   right: 0;
-  background: white;
+  background: var(--background-gray) ;
   height: var(--mobile-header-height);
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   z-index: 9997;
@@ -221,6 +236,7 @@ body {
   padding: 24px 24px;
   min-height: calc(100vh - var(--header-height));
   background: var(--background-gray);
+  
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -797,7 +813,7 @@ body {
 
 /* Mobile header specific styles */
 .mobile-header {
-  background: white;
+ 
   width: 100%;
   position: fixed;
   top: 0;
@@ -840,7 +856,7 @@ body {
 
   .main-content {
     margin-top: var(--mobile-header-height);
-    padding: 24px 16px;
+    padding: 0px 0px;
   }
 
   .hero-container {

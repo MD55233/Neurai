@@ -6,8 +6,9 @@ export const DesktopHeader = () => {
       <div className="header-content">
         <div className="header-left">
           {/* show icon-only logo */}
-          <img src="NEUR AI ONLY ICON.png" alt="NeurAI" className="logo" />
-          <nav className="nav-links">
+          <img src="logo neurai.svg" alt="NeurAI" className="logo" />
+          <div className="header-text" >NeurAI</div>  
+                  <nav className="nav-links">
             <a href="#">Solutions</a>
             <a href="#">Roles</a>
             <a href="#">Resources</a>
@@ -28,7 +29,8 @@ export const MobileHeader = ({ onToggleDrawer }) => {
   return (
     <header className="header mobile-header">
       <div className="header-content">
-        <img src="NEUR AI ONLY ICON.png" alt="NeurAI" className="logo" />
+        <img src="logo neurai.svg" alt="NeurAI" className="logo" />
+        <img src="NEUR AI BLACK FONT WITHOUT ICON.png" alt="NeurAI" className="logotext" />
         <button className="menu-button" onClick={onToggleDrawer}>
           <span className="menu-icon"></span>
         </button>
