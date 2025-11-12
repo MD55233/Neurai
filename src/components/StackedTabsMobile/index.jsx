@@ -273,7 +273,7 @@ export default function StackedTabs() {
             </div>
 
             <div className="flex justify-center w-full max-w-2xl mx-auto md:mx-0 order-2">
-              <div className="w-full aspect-[5/7] md:aspect-[6/8] lg:aspect-[7/6] bg-gradient-to-br from-gray-200 to-gray-300 dark:from-slate-700 dark:to-slate-800 rounded-xl shadow-xl overflow-hidden flex items-center justify-center">
+              <div className="w-full  lg:aspect-[7/6] bg-gradient-to-br from-gray-200 to-gray-300 dark:from-slate-700 dark:to-slate-800 rounded-xl shadow-xl overflow-hidden flex items-center justify-center">
                 <img src={[img0, img1, img2, img3][i]} alt={`${c.id} visual`} className="panel-image" />
               </div>
             </div>
