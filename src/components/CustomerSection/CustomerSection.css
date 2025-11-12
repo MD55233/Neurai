@@ -2,6 +2,8 @@
   padding: 3rem 1rem;
   max-width: var(--max-width);
   margin: 0 auto;
+  background: var(--card-bg);
+  transition: background-color 0.3s ease;
 }
 
 .customers-logos {
@@ -15,10 +17,13 @@
 .logo-pill {
   padding: 0.5rem 1.5rem;
   border-radius: 2rem;
-  background: var(--bg-pill);
-  color: var(--text-muted);
+  background: var(--background-gray);
+  color: var(--text-black);
+  opacity: 0.7;
   font-size: 0.875rem;
   font-weight: 500;
+  border: 1px solid var(--border-color);
+  transition: all 0.3s ease;
 }
 
 .testimonial-row {
@@ -35,15 +40,18 @@
   line-height: 1.4;
   margin: 0 0 1.5rem;
   max-width: 42rem;
+  color: var(--text-black);
 }
 
 .meta-name {
   font-weight: 600;
   margin-bottom: 0.25rem;
+  color: var(--text-black);
 }
 
 .meta-role {
-  color: var(--text-muted);
+  color: var(--text-black);
+  opacity: 0.7;
   font-size: 0.875rem;
 }
 
@@ -56,11 +64,12 @@
 }
 
 .stat-card {
-  background: var(--bg-card);
+  background: var(--background-gray);
+  border: 1px solid var(--border-color);
   border-radius: 1rem;
   padding: 2rem;
   text-align: center;
-  transition: transform 0.2s;
+  transition: transform 0.2s, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .stat-card:hover {
@@ -71,13 +80,14 @@
   font-size: 1.125rem;
   font-weight: 500;
   margin-bottom: 1rem;
-  color: var(--text-muted);
+  color: var(--text-black);
+  opacity: 0.8;
 }
 
 .stat-value {
   font-size: 2.5rem;
   font-weight: 700;
-  color: var(--text-primary);
+  color: var(--text-black);
 }
 
 @media (min-width: 768px) {

@@ -1,47 +1,77 @@
 import React, { useEffect } from 'react';
+import { useTheme } from '../../context/ThemeContext';
 import './Hero.css';
 
 export const Hero = () => {
+  const { isDark } = useTheme();
+  
   useEffect(() => {
     const init = () => {
-      if (!window.particlesJS || document.querySelector('#hero-particles canvas')) return;
-      const baseConfig = {
-        particles: {
-          number: {
-            value: 60,
-            density: { enable: true, value_area: 900 }
-          },
+      try {
+        // Check if container exists and particles not already initialized
+        const container = document.getElementById('hero-particles');
+        if (!container || !window.particlesJS || container.querySelector('canvas')) {
+          return;
+        }
+
+        // Check if dark mode is active
+        const isDark = document.documentElement.classList.contains('dark');
+        
+        const baseConfig = {
+          particles: {
+            number: {
+              value: 60,
+              density: { enable: true, value_area: 900 }
+            },
             color: { value: '#5ce1e6' },
             shape: { type: 'circle' },
-            opacity: { value: 0.45 },
-            size: { value: 3.2, random: true },
-            line_linked: { enable: true, distance: 140, color: '#5ce1e6', opacity: 0.45, width: 1 },
-            move: { enable: true, speed: 2.2, direction: 'none', out_mode: 'out' }
-        },
-        interactivity: {
-          detect_on: 'canvas',
-          events: {
-            onhover: { enable: true, mode: 'grab' },
-            onclick: { enable: true, mode: 'push' },
-            resize: true
+            opacity: { 
+              value: isDark ? 0.6 : 0.4,
+              random: false
+            },
+            size: { value: 3, random: true },
+            line_linked: { 
+              enable: true, 
+              distance: 140, 
+              color: '#5ce1e6', 
+              opacity: isDark ? 0.3 : 0.2, 
+              width: 1.5
+            },
+            move: { 
+              enable: true, 
+              speed: 2.2, 
+              direction: 'none', 
+              out_mode: 'out' 
+            }
           },
-          modes: {
-            grab: { distance: 180, line_linked: { opacity: 0.4 } },
-            push: { particles_nb: 3 },
-            repulse: { distance: 200, duration: 0.4 }
-          }
-        },
-        retina_detect: true
-      };
+          interactivity: {
+            detect_on: 'canvas',
+            events: {
+              onhover: { enable: true, mode: 'grab' },
+              onclick: { enable: true, mode: 'push' },
+              resize: true
+            },
+            modes: {
+              grab: { distance: 180, line_linked: { opacity: 0.6 } },
+              push: { particles_nb: 3 },
+              repulse: { distance: 200, duration: 0.4 }
+            }
+          },
+          retina_detect: true
+        };
 
-      const isMobile = window.matchMedia('(max-width: 640px)').matches;
-      if (isMobile) {
-        baseConfig.particles.number.value = 32;
-        baseConfig.particles.move.speed = 1.2;
-        baseConfig.particles.line_linked.distance = 120;
+        const isMobile = window.matchMedia('(max-width: 640px)').matches;
+        if (isMobile) {
+          baseConfig.particles.number.value = 32;
+          baseConfig.particles.move.speed = 1.2;
+          baseConfig.particles.line_linked.distance = 120;
+        }
+
+        window.particlesJS('hero-particles', baseConfig);
+      } catch (error) {
+        console.warn('Particles.js initialization failed:', error);
+        // Continue without particles - not critical for functionality
       }
-
-      window.particlesJS('hero-particles', baseConfig);
     };
 
     if (window.particlesJS) {
@@ -57,6 +87,35 @@ export const Hero = () => {
       // Stop trying after 3 seconds
       setTimeout(() => clearInterval(id), 3000);
     }
+
+    // Listen for theme changes and reinitialize
+    const observer = new MutationObserver(() => {
+      const container = document.getElementById('hero-particles');
+      if (container) {
+        const canvas = container.querySelector('canvas');
+        if (canvas) {
+          canvas.remove();
+        }
+        init();
+      }
+    });
+    
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+
+    // Cleanup on unmount
+    return () => {
+      observer.disconnect();
+      const container = document.getElementById('hero-particles');
+      if (container) {
+        const canvas = container.querySelector('canvas');
+        if (canvas) {
+          canvas.remove();
+        }
+      }
+    };
   }, []);
 
   return (

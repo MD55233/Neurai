@@ -3,6 +3,8 @@
   max-width: var(--max-width);
   margin: 0 auto;
   text-align: center;
+  background: var(--card-bg);
+  transition: background-color 0.3s ease;
 }
 
 .features-section h2 {
@@ -12,11 +14,13 @@
   max-width: 800px;
   margin-left: auto;
   margin-right: auto;
+  color: var(--text-black);
 }
 
 .features-subtitle {
   font-size: 1.25rem;
-  color: var(--text-muted);
+  color: var(--text-black);
+  opacity: 0.8;
   margin-bottom: 3rem;
   max-width: 600px;
   margin-left: auto;
@@ -31,11 +35,12 @@
 }
 
 .feature-card {
-  background: var(--bg-card);
+  background: var(--background-gray);
+  border: 1px solid var(--border-color);
   border-radius: 1rem;
   padding: 2rem;
   text-align: left;
-  transition: transform 0.2s, opacity 0.5s;
+  transition: transform 0.2s, opacity 0.5s, background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .feature-card.hidden {
@@ -59,8 +64,8 @@
   width: 48px;
   height: 48px;
   border-radius: 12px;
-  background: var(--bg-accent);
-  color: var(--text-accent);
+  background: var(--secandary-blue);
+  color: #000;
   margin-bottom: 1.5rem;
 }
 
@@ -68,10 +73,12 @@
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 0.75rem;
+  color: var(--text-black);
 }
 
 .feature-card p {
-  color: var(--text-muted);
+  color: var(--text-black);
+  opacity: 0.8;
   line-height: 1.5;
   margin: 0;
 }
