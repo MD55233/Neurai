@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react"
-import "./stackedtabs.css"
+import "./stackedTabs.css"
 
 import img0 from '../../assets/stackedtabs/image.webp';
 import img1 from '../../assets/stackedtabs/image (1).webp';
