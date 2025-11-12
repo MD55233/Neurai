@@ -3,6 +3,11 @@
 import { useEffect, useRef, useState } from "react"
 import "./stackedtabs.css"
 
+import img0 from '../../assets/stackedtabs/image.webp';
+import img1 from '../../assets/stackedtabs/image (1).webp';
+import img2 from '../../assets/stackedtabs/image (2).webp';
+import img3 from '../../assets/stackedtabs/image (3).webp';
+
 const tabs = [
   { id: "outbound", label: "OUTBOUND" },
   { id: "inbound", label: "INBOUND" },
@@ -19,8 +24,7 @@ const content = [
       "Built-in email deliverability guardrails",
       "Prioritized task lists to maximize selling",
       "Workflow automations to identify and scale what works",
-    ],
-    image: "/abstract-design-1.png",
+    ]
   },
   {
     id: "inbound",
@@ -30,8 +34,7 @@ const content = [
       "Real-time form enrichment",
       "Instant routing with built-in scheduler",
       "Automated nurture & follow-up sequences",
-    ],
-    image: "/abstract-design-02.png",
+    ]
   },
   {
     id: "enrichment",
@@ -41,8 +44,7 @@ const content = [
       "Verified emails & phone numbers",
       "Better targeting and personalization",
       "Clean data across your CRM",
-    ],
-    image: "/abstract-design-03.png",
+    ]
   },
   {
     id: "deals",
@@ -52,8 +54,7 @@ const content = [
       "AI-powered summaries and follow-ups",
       "Pipeline boards & deal alerts",
       "Performance dashboards for coaching",
-    ],
-    image: "/abstract-design-1.png",
+    ]
   },
 ]
 
@@ -177,13 +178,16 @@ export default function StackedTabs() {
   const getPanelStyle = (index) => {
     if (isMobile) return {}
 
-    const isActive = index === activeIndex
+    const offset = Math.max(0, index - activeIndex) * 20
+    const yTransform = index <= activeIndex ? 0 : offset
+    const opacity = index <= activeIndex ? 1 : 0.5
+    const zIndex = Math.max(1, 100 - index)
+
     return {
-      transform: isActive ? `translateY(0px) scale(1)` : `translateY(20px) scale(0.99)`,
-      opacity: isActive ? 1 : 0,
-      zIndex: isActive ? 2 : 1,
-      pointerEvents: isActive ? "auto" : "none",
-      transition: "opacity 0.3s ease, transform 0.3s ease",
+      transform: `translateY(${yTransform}px) scale(${0.95 + index * 0.01})`,
+      opacity: opacity,
+      zIndex: zIndex,
+      transition: "all 0.3s ease-out",
     }
   }
 
@@ -195,7 +199,7 @@ export default function StackedTabs() {
           isPinned ? "fixed left-0 right-0 top-14 md:top-16" : "relative"
         } z-[200] bg-white/95 backdrop-blur-md transition-all duration-300 border-b border-gray-100`}
       >
-        <div ref={tabsScrollRef} className="w-full overflow-x-auto overflow-y-hidden no-scrollbar">
+        <div ref={tabsScrollRef} className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide">
           <div
             role="tablist"
             aria-label="Tabs"
@@ -229,7 +233,7 @@ export default function StackedTabs() {
       <div aria-hidden="true" style={{ height: isPinned ? tabsHeight : 0 }} />
 
       <div
-        className={`relative pt-24 md:pt-16 ${isMobile ? "min-h-auto" : "md:h-screen md:flex md:items-center md:justify-center"}`}
+        className={`relative md:pt-16 ${isMobile ? "min-h-auto" : "md:h-screen md:flex md:items-center md:justify-center"}`}
       >
         {content.map((c, i) => (
           <div
@@ -238,7 +242,6 @@ export default function StackedTabs() {
               if (el) panelsRef.current[i] = el
             }}
             style={getPanelStyle(i)}
-            aria-hidden={!isMobile && i !== activeIndex}
             className={`
               ${isMobile ? "relative w-full min-h-screen py-8 px-4 xs:px-5 sm:px-6" : "absolute inset-0 pt-20 md:pt-16 w-full"}
               grid grid-cols-1 md:grid-cols-2 items-center justify-center gap-6 xs:gap-8 md:gap-10 lg:gap-14
@@ -273,12 +276,7 @@ export default function StackedTabs() {
 
             <div className="flex justify-center w-full max-w-2xl mx-auto md:mx-0 order-2">
               <div className="w-full aspect-[5/7] md:aspect-[6/8] lg:aspect-[7/6] bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl shadow-xl overflow-hidden flex items-center justify-center">
-                <img
-                  src={c.image || "/placeholder.svg"}
-                  alt={`${c.id} visual`}
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
+                <img src={[img0, img1, img2, img3][i]} alt={`${c.id} visual`} className="panel-image" />
               </div>
             </div>
           </div>
