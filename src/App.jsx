@@ -4,7 +4,8 @@ import { Hero } from './components/Hero';
 import VideoBanner from './components/VideoBanner';
 import { CustomerSection } from './components/CustomerSection';
 import { FeaturesSection } from './components/FeaturesSection';
-import StackedTabs from './components/StackedTabs';
+import StackedTabsDesktop from './components/StackedTabsDesktop/index.jsx';
+import StackedTabsMobile from './components/StackedTabsMobile/index.jsx';
 import PeopleCards from './components/PeopleCards';
 import SpotlightSection from './components/SpotlightSection';
 import PromoSection from './components/PromoSection';
@@ -75,7 +76,17 @@ function App() {
         </div>
         
         <div className="second-container">
-          <StackedTabs />
+          <div className="w-full">
+            {/* Desktop-only (lg and up) */}
+            <div className="hidden md:block">
+              <StackedTabsDesktop />
+            </div>
+            {/* Tablet + Mobile (below lg) */}
+            <div className="block md:hidden">
+              <StackedTabsMobile />
+            </div>
+          </div>
+          
           <PeopleCards />
            <SpotlightSection />
           
