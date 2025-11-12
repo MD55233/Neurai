@@ -169,17 +169,17 @@ export default function StackedTabs() {
   };
 
   return (
-    <section ref={sectionRef} className="relative overflow-hidden w-full">
+    <section ref={sectionRef} className="relative overflow-hidden w-full bg-white dark:bg-slate-900">
       {/* Sticky Tabs */}
-      <div className="sticky top-[64px] md:top-[64px] z-[50] bg-white/95 backdrop-blur-md overflow-x-auto overflow-y-hidden w-full no-scrollbar">
+      <div className="sticky top-[64px] md:top-[64px] z-[50] bg-white/95 dark:bg-slate-900/95 backdrop-blur-md overflow-x-auto overflow-y-hidden w-full no-scrollbar border-b border-gray-200 dark:border-slate-700">
         <div className="flex flex-nowrap justify-start md:justify-center px-4 py-3 gap-2 xs:gap-3 sm:gap-4 max-w-[100vw]">
           {tabs.map((t, i) => (
             <button
               key={t.id}
-              className={` rounded-md font-medium border border-transparent transition-all duration-300 text-nowrap px-4 py-3 text-[10px] uppercase leading-[120%] transition-all md:px-5 md:py-3 md:text-[12px] ${
+              className={` rounded-md font-medium border transition-all duration-300 text-nowrap px-4 py-3 text-[10px] uppercase leading-[120%] md:px-5 md:py-3 md:text-[12px] ${
                 activeIndex === i
-                  ? 'bg-[#cff4f7] text-black'
-                  : 'bg-gray-100 text-gray-700 hover:bg-white hover:shadow-glow hover:-translate-y-[2px]'
+                  ? 'bg-cyan-200/80 dark:bg-cyan-400/20 text-black dark:text-cyan-300 border-cyan-300 dark:border-cyan-400'
+                  : 'bg-gray-100 dark:bg-slate-800 text-gray-700 dark:text-gray-300 border-transparent hover:bg-white dark:hover:bg-slate-700 hover:shadow-glow hover:-translate-y-[2px]'
               }`}
               onClick={() => handleTabClick(i)}
             >
@@ -199,18 +199,18 @@ export default function StackedTabs() {
           >
             {/* Text Content */}
             <div className="w-full max-w-xl mx-auto md:mx-0">
-              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 md:mb-6">{c.title}</h2>
+              <h2 className="text-xl xs:text-2xl sm:text-3xl md:text-4xl font-semibold mb-4 md:mb-6 text-gray-900 dark:text-white">{c.title}</h2>
               <div className="flex gap-3 mb-4 md:mb-6">
-                <button className="primary bg-[#5ce1e6] text-white text-sm xs:text-base px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-200 hover:scale-[1.02]">
+                <button className="primary bg-[#5ce1e6] hover:bg-[#4dd1d6] text-black text-sm xs:text-base px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-200 hover:scale-[1.02]">
                   Get started
                 </button>
-                <button className="secondary border border-black text-sm xs:text-base px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-200 hover:scale-[1.02]">
+                <button className="secondary border border-black dark:border-white text-black dark:text-white text-sm xs:text-base px-4 py-2 sm:px-6 sm:py-2 rounded-md hover:shadow-[0_4px_20px_rgba(0,0,0,0.15)] transition-all duration-200 hover:scale-[1.02]">
                   Learn more
                 </button>
               </div>
-              <ul className="space-y-3 text-gray-600 text-sm xs:text-base">
+              <ul className="space-y-3 text-gray-600 dark:text-gray-300 text-sm xs:text-base">
                 {c.bullets.map((b, idx) => (
-                  <li key={idx} className="flex items-start before:content-['✔'] before:mr-2 before:flex-shrink-0">{b}</li>
+                  <li key={idx} className="flex items-start before:content-['✔'] before:mr-2 before:flex-shrink-0 before:text-cyan-500 dark:before:text-cyan-400">{b}</li>
                 ))}
               </ul>
             </div>

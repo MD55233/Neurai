@@ -1,6 +1,6 @@
 .card-spotlight-motion {
   position: relative;
-  background: white;
+  background: var(--card-bg);
   border: 1px solid rgba(92, 225, 230, 0.2);
   border-radius: 12px;
   padding: 2rem;
@@ -36,7 +36,7 @@
 }
 
 .card-spotlight h3 {
-  color: #000000;
+  color: var(--text-black);
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
@@ -44,7 +44,7 @@
 
 .card-spotlight p,
 .card-spotlight-motion p {
-  color: #000000;
+  color: var(--text-black);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -62,7 +62,7 @@
   align-items: flex-start;
   gap: 0.5rem;
   margin-bottom: 0.75rem;
-  color: #000;
+  color: var(--text-black);
 }
 
 .check-icon {
@@ -75,7 +75,8 @@
 
 .card-spotlight .description,
 .card-spotlight-motion .description {
-  color: #1f1f1f;
+  color: var(--text-black);
+  opacity: 0.8;
   font-size: 0.875rem;
   margin-top: 1rem;
 }

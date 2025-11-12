@@ -1,19 +1,26 @@
 /* PromoSection styles: card with slanted image and precise divider lines to match screenshot */
 .promo-section {
   padding: 36px 8px;
-  background: #f3f4f6; /* subtle page bg */
+  background: var(--background-gray);
+  transition: background-color 0.3s ease;
 }
 
 .promo-card {
  margin-top: 15px;
   margin: 0 auto;
-  background: #ffffff;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 14px;
   box-shadow: 0 10px 30px rgba(2,6,23,0.08);
   overflow: hidden;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: stretch;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.dark .promo-card {
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
 }
 
 .promo-content {
@@ -28,11 +35,12 @@
   line-height: 1.02;
   margin: 0 0 18px 0;
   font-weight: 600;
-  color: #0b1220;
+  color: var(--text-black);
 }
 
 .promo-desc {
-  color: #4b5563;
+  color: var(--text-black);
+  opacity: 0.8;
   margin-bottom: 24px;
   max-width: 560px;
 }
@@ -49,18 +57,19 @@
   font-weight: 600;
   cursor: pointer;
   border: 1px solid transparent;
+  transition: all 0.3s ease;
 }
 
 .promo-btn-primary {
-  background: #0b1220;
-  color: #fff;
+  background: var(--text-black);
+  color: var(--background-gray);
   box-shadow: 0 8px 24px rgba(11,18,32,0.12);
 }
 
 .promo-btn-outline {
   background: transparent;
-  color: #0b1220;
-  border: 1px solid rgba(11,18,32,0.08);
+  color: var(--text-black);
+  border: 1px solid var(--border-color);
 }
 
 .promo-image {

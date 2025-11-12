@@ -1,17 +1,25 @@
 import { useMotionValue, motion, useMotionTemplate } from "motion/react";
 import React, { useState } from "react";
 import { cn } from "../../lib/utils";
+import { useTheme } from "../../context/ThemeContext";
 import './card-spotlight.css';
 
 export const CardSpotlight = ({
   children,
   radius = 350,
-  color = "rgba(237, 249, 250, 1)", // Your brand color
+  color,
   className,
   ...props
 }) => {
+  const { isDark } = useTheme();
   const mouseX = useMotionValue(0);
   const mouseY = useMotionValue(0);
+
+  // Choose a subtle glow for dark mode; keep bright brand tint for light mode
+  const effectiveColor = color ?? (isDark
+    ? "rgba(92, 225, 230, 0.16)" // soft cyan glow in dark
+    : "rgba(237, 249, 250, 1)"   // original light glow
+  );
   
   function handleMouseMove({
     currentTarget,
@@ -42,7 +50,7 @@ export const CardSpotlight = ({
       <motion.div
         className="pointer-events-none absolute z-0 -inset-px rounded-xl opacity-0 transition duration-300 group-hover/spotlight:opacity-100"
         style={{
-          backgroundColor: color,
+          backgroundColor: effectiveColor,
           maskImage: useMotionTemplate`
             radial-gradient(
               ${radius}px circle at ${mouseX}px ${mouseY}px,

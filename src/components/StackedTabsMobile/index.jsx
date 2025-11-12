@@ -190,12 +190,12 @@ export default function StackedTabs() {
   }
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white overflow-x-hidden overflow-y-visible">
+    <section ref={sectionRef} className="relative w-full bg-white dark:bg-slate-900 overflow-x-hidden overflow-y-visible">
       <div
         ref={tabsBarRef}
         className={`${
           isPinned ? "fixed left-0 right-0 top-14 md:top-16" : "relative"
-        } z-[200] bg-white/95 backdrop-blur-md transition-all duration-300 border-b border-gray-100`}
+        } z-[200] bg-white/95 dark:bg-slate-900/95 backdrop-blur-md transition-all duration-300 border-b border-gray-100 dark:border-slate-700`}
       >
         <div ref={tabsScrollRef} className="w-full overflow-x-auto overflow-y-hidden scrollbar-hide">
           <div
@@ -214,8 +214,8 @@ export default function StackedTabs() {
                   text-[11px] md:text-[12px] lg:text-[13px] uppercase leading-[120%] tracking-wide
                   ${
                     activeIndex === i
-                      ? "bg-cyan-200/80 text-black shadow-md scale-105 border border-cyan-300"
-                      : "bg-gray-50 text-gray-700 border border-gray-200 hover:bg-white hover:border-cyan-200 hover:shadow-md hover:-translate-y-0.5 active:scale-95"
+                      ? "bg-cyan-200/80 dark:bg-cyan-900/60 text-black dark:text-cyan-100 shadow-md scale-105 border border-cyan-300 dark:border-cyan-700"
+                      : "bg-gray-50 dark:bg-slate-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-slate-600 hover:bg-white dark:hover:bg-slate-700 hover:border-cyan-200 dark:hover:border-cyan-600 hover:shadow-md hover:-translate-y-0.5 active:scale-95"
                   }
                 `}
                 ref={(el) => (tabBtnRefs.current[i] = el)}
@@ -247,7 +247,7 @@ export default function StackedTabs() {
             `}
           >
             <div className="w-full max-w-2xl mx-auto md:mx-0 order-1">
-              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight text-balance">
+              <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 sm:mb-6 md:mb-8 leading-tight text-balance text-black dark:text-white">
                 {c.title}
               </h2>
 
@@ -255,12 +255,12 @@ export default function StackedTabs() {
                 <button className="w-full xs:w-auto px-5 xs:px-6 py-2.5 md:py-3 rounded-lg font-semibold text-white bg-cyan-400 hover:bg-cyan-500 transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95">
                   Get started
                 </button>
-                <button className="w-full xs:w-auto px-5 xs:px-6 py-2.5 md:py-3 rounded-lg font-semibold border-2 border-black text-black hover:bg-black hover:text-white transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95">
+                <button className="w-full xs:w-auto px-5 xs:px-6 py-2.5 md:py-3 rounded-lg font-semibold border-2 border-black dark:border-white text-black dark:text-white hover:bg-black dark:hover:bg-white hover:text-white dark:hover:text-black transition-all duration-200 hover:shadow-lg hover:scale-105 active:scale-95">
                   Learn more
                 </button>
               </div>
 
-              <ul className="space-y-2.5 md:space-y-3.5 text-sm xs:text-base md:text-lg text-gray-600">
+              <ul className="space-y-2.5 md:space-y-3.5 text-sm xs:text-base md:text-lg text-gray-600 dark:text-gray-300">
                 {c.bullets.map((b, idx) => (
                   <li
                     key={idx}
@@ -273,7 +273,7 @@ export default function StackedTabs() {
             </div>
 
             <div className="flex justify-center w-full max-w-2xl mx-auto md:mx-0 order-2">
-              <div className="w-full aspect-[5/7] md:aspect-[6/8] lg:aspect-[7/6] bg-gradient-to-br from-gray-200 to-gray-300 rounded-xl shadow-xl overflow-hidden flex items-center justify-center">
+              <div className="w-full aspect-[5/7] md:aspect-[6/8] lg:aspect-[7/6] bg-gradient-to-br from-gray-200 to-gray-300 dark:from-slate-700 dark:to-slate-800 rounded-xl shadow-xl overflow-hidden flex items-center justify-center">
                 <img src={[img0, img1, img2, img3][i]} alt={`${c.id} visual`} className="panel-image" />
               </div>
             </div>
